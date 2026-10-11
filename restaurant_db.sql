@@ -122,25 +122,22 @@ VALUES
 -- REQUIRED QUERIES
 -- =============================================
 
--- 1. Get all bookings
+-- 1. Get a list of all tables in a given restaurant
+-- Example: restaurant_id = 1
+
 SELECT
-    b.booking_id,
-    c.first_name,
-    c.last_name,
+    rt.table_id,
     rt.table_number,
-    b.booking_date,
-    b.booking_time,
-    b.number_of_guests
-FROM BOOKING b
-JOIN CUSTOMER c
-    ON b.customer_id = c.customer_id
-JOIN RESTAURANT_TABLE rt
-    ON b.table_id = rt.table_id
-ORDER BY b.booking_date, b.booking_time;
+    rt.capacity
+FROM RESTAURANT_TABLE rt
+WHERE rt.restaurant_id = 1
+ORDER BY rt.table_number;
 
 
--- 2. Get all bookings for a given customer
+-- 2. Get all bookings for a given customer,
+-- ordered by date
 -- Example: customer_id = 1
+
 SELECT
     b.booking_id,
     c.first_name,
@@ -158,7 +155,7 @@ WHERE c.customer_id = 1
 ORDER BY b.booking_date, b.booking_time;
 
 
--- 3. Get all bookings for a given table
+-- 3. Get all bookings for a given table ID,
 -- including the customers for a specific date
 -- Example: table_id = 2, date = 2026-10-10
 
