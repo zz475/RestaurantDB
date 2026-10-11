@@ -36,4 +36,8 @@ The SQL implementation creates the database tables and includes realistic test d
 
 ## 5. Required Queries
 
-The SQL script contains the required queries from the assignment.
+The SQL script includes the following required queries:
+
+1. Get a list of all tables in the restaurant.
+2. Get all bookings for a given customer, ordered by date and time.
+3. Get all bookings for a given table ID, including customer information for a specific date.
